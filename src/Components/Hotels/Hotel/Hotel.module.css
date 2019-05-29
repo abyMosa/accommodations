@@ -1,0 +1,17 @@
+.Hotel{
+    width: 100%;
+    min-height: 200px;
+    background-color: white;
+    margin: 15px;
+    display: flex;
+    box-sizing: border-box;
+    padding: 20px;
+
+}
+.HotelImgContainer{
+    /* width: 200px; */
+    max-width: 200px;
+}
+.HotelImgContainer img{
+    max-width: 200px;
+}

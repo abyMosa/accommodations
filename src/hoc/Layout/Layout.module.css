@@ -1,3 +1,8 @@
 .Content {
-    margin-top: 72px;
+    
+    /* width: 100%; */
+    box-sizing: border-box;
+    max-width: 900px;
+    margin: 0px auto;
+    margin-top: 56px;
 }
