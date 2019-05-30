@@ -65,7 +65,7 @@ export const setFilters = (establishments) => {
             return filter;
         });
 
-        console.log(filters);
+        // console.log(filters);
         dispatch(setFiltersInit(filters));
     }
 }

@@ -7,33 +7,34 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 const Filter = (props) => {
     
+    let filterType = props.config.type;
     let filterBody;
-    console.log('props', props);
+    // console.log('props', props);
 
     switch (props.config.type) {
+
         case "Name":
             filterBody = (<TextInput config={props.config} label="Name" filterAdded={ (filterType, value) => props.onFilterAdded(filterType, value) }/>);
             break;
 
         case "Stars":
-            filterBody = props.config.config.options.map( filter =>  { 
+            filterBody = props.config.config.options.map( (filter, i) =>  { 
+                console.log('filterType', filterType);
                 return (
-                    <FormControlLabel control={
-                        <Switch key={filter.label} checked={props.config.value} onChange={ (filterType, value) => props.onFilterAdded(filterType, value)} /> 
+                    <FormControlLabel key={i} control={
+                        <Switch key={props.config.type+'-'+i} checked={props.config.value} onChange={ (filterType, value) => props.onFilterAdded(filterType, value)} /> 
                     }
                     label={filter.label}
                     />
                 );
             });
-            
-
             break;
 
         default:
-            filterBody = props.config.config.options.map( filter =>  { 
+            filterBody = props.config.config.options.map( (filter, i) =>  { 
                 return (
-                    <FormControlLabel control={
-                        <Checkbox key={filter.label} checked={props.config.value} onChange={ (filterType, value) => props.onFilterAdded(filterType, value)} /> 
+                    <FormControlLabel key={i} control={
+                        <Checkbox key={props.config.type+'-'+i} checked={props.config.value} onChange={ (filterType, value) => props.onFilterAdded(filterType, value)} /> 
                     }
                     label={filter.label}
                     />
