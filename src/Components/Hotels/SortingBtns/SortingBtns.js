@@ -1,15 +1,22 @@
 import React from 'react';
+import Button from '../../UI/Button/Button';
+import Classes from './SortingBtns.module.css';
 
 const SortingBtns = (props) => {
     let criteriaAr = Object.keys(props.criteria).map( key => {
+        let btnClasses = props.criteria[key]? [Classes.ActiveBtn, Classes.SortingBtn].join(' '): Classes.SortingBtn;
         return(
-            <button key={key} value={key} onClick={props.clicked}> {key}  ( {props.criteria[key]? 'true': 'false' } )  </button>
+            <Button classes={btnClasses} value={key} key={key} clicked={props.clicked}>{key}</Button>
         )
     });
     return (
-        <div>
-            {criteriaAr}
+        <div className={Classes.SortingBtnsWrap}>
+            { props.propertyCount ? <p>{props.propertyCount} properties found</p>: null }
+            <div className={Classes.SortingBtns}>
+                {criteriaAr}
+            </div>
         </div>
+        
     );
 };
 

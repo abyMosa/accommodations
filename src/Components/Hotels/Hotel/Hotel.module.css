@@ -2,7 +2,9 @@
     width: 100%;
     min-height: 200px;
     background-color: white;
-    margin: 15px;
+    /* margin: 15px; */
+    /* margin-top: 0px; */
+    margin-bottom: 25px;
     display: flex;
     box-sizing: border-box;
     padding: 15px;
@@ -19,14 +21,94 @@
     flex-grow: 1;
     padding: 0px 15px;
 }
-.PriceContainer{
+.ReviewContainer{
     flex-grow: 0;
     flex-basis: 150px;
-    
+    text-align: right;
+}
+
+.UserRating p{
+    background-color: navy;
+    min-width: 15px;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    font-weight: 500;
+    border-radius: 6px 6px 6px 0px;
+    text-align: center;
+    margin: 0px;
+    margin-left: 10px;
+
 }
 
 .ImgContainer img{
     max-width: 200px;
     border-radius: 4px;
 
+}
+.HotelHeader{
+    display: flex;
+}
+.TitleContainer{
+    flex-grow: 1;
+}
+.UserRatingWrap{
+    display: flex;
+    flex-grow: 0;
+    flex-basis: 200px;
+    text-align: right;
+}
+.RatingTitle{
+    font-size: 18px;
+    font-weight: bold;
+}
+.RatingTitle.Success{
+    color: green;
+}
+.RatingTitle.Warning{
+    color: #ffcc00;
+}
+.RatingTitle.Error{
+    color: Red;
+}
+.RatingTitle.Unrated{
+    color: gray;
+}
+.StarsWrap{
+    display: inline-block;
+}
+.Stars{
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.Star{
+    color: #ffcc00;
+    font-size: 20px;
+}
+.HotelTitleWrap{
+    display: inline-block;
+    
+}
+.HotelTitle{
+    font-size: 25px;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 12px;
+}
+.Location{
+    margin-top: 5px;
+}
+.Distance, .Small{
+    font-size: 87%;
+}
+
+.HotelDetails > div{
+    width: 50%;
+}
+.HotelDetails div:last-child{
+    text-align: right;
+    /* font-weight: bold; */
 }

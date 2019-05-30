@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from '../../store/actions/index';
-// import Spinner from '../../Components/UI/Spinner/Spinner';
 import SortingBtns from '../../Components/Hotels/SortingBtns/SortingBtns';
+import Filters from '../../Components/Hotels/Filters/Filters';
 import Hotels from '../../Components/Hotels/Hotels';
 import Classes from './HotelSearch.module.css';
+
 
 class HotelSearch extends Component {
 
     state = {
         filteredEstablishments: [],
-        // filters: [ 'Distance', 'Stars', 'MinCost', 'TrpRating', 'UserRating',],
-        sortCriteria: { Name: false, Stars: false, TrpRating: false, UserRating: false, MinCost: false }
+        filters: [
+            { type: 'Name', label: 'Filter by Name', value: null },
+            { type: 'Stars', label: 'Filter by rating', options: [ 0, 2, 3, 4, 5 ], value: null },
+            { type: 'MinCost', label: 'Your budget', options: [ ], value: null },
+            { type: 'UserRatingCount', label: 'Trip Rating', options: [ ], value: null },
+            { type: 'UserRating', label: 'User Rating', options: [ ], value: null },
+        ],
+        sortCriteria: { Distance: false, Stars: false, TrpRating: false, UserRating: false, MinCost: false }
     }
 
     componentDidMount(){
@@ -29,15 +36,19 @@ class HotelSearch extends Component {
         this.setState({ sortCriteria : sortCriteriaCopy});
     }
 
+    filterAddedHandler = (filterType, value) => {
+        console.log(filterType, value);
+    }
+
     render() {
         return (
             <div className={[Classes.HotelSearch, 'grid'].join(' ')}>
                 <div className="col-3"> 
-                    {/* <Filters /> */}
+                    <Filters filters={this.state.filters} filterAdded={(filterType, value) => this.filterAddedHandler(filterType, value)}/>
                 </div>
                 <div className="col-9"> 
-                    <SortingBtns criteria={this.state.sortCriteria} clicked={ this.sortingHandler }/> 
-                    <Hotels establishments={this.props.establishments} />
+                    <SortingBtns propertyCount={this.props.establishments.length} criteria={this.state.sortCriteria} clicked={ this.sortingHandler }/> 
+                    <Hotels establishments={this.props.establishments} loading={this.props.loading} />
                 </div>
             </div>
         );
