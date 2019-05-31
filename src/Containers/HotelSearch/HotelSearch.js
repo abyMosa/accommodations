@@ -5,6 +5,7 @@ import SortingBtns from '../../Components/Hotels/SortingBtns/SortingBtns';
 import Filters from '../../Components/Hotels/Filters/Filters';
 import Hotels from '../../Components/Hotels/Hotels';
 import Classes from './HotelSearch.module.css';
+import SortSection from '../../Components/Hotels/SortSection/SortSection';
 
 
 class HotelSearch extends Component {
@@ -44,9 +45,12 @@ class HotelSearch extends Component {
         sortCriteria: { Distance: false, Stars: false, TrpRating: false, UserRating: false, MinCost: false }
     }
 
+    // shouldComponentUpdate(nextProps, nextState){
+        // return ( (this.state !== nextState) && (this.props !== nextProps) );
+    // }
+
     componentDidMount(){
         this.props.loadHotels();
-        
     }
 
     sortingHandler = (e) => {
@@ -69,7 +73,7 @@ class HotelSearch extends Component {
         this.setState({ filters: newFilters });
     }
     
-    onNameAdded = (value) => {
+    onNameChanged = (value) => {
         console.log(value);
     }
 
@@ -80,11 +84,12 @@ class HotelSearch extends Component {
                     <Filters 
                     filters={this.state.filters} 
                     filterAdded={(filterType, key, value) => this.filterAddedHandler(filterType, key, value)}
-                    onNameAdded={value => this.onNameAdded(value)}
+                    onNameAdded={value => this.onNameChanged(value)}
                     />
                 </div>
                 <div className="col-9"> 
-                    <SortingBtns propertyCount={this.props.establishments.length} criteria={this.state.sortCriteria} clicked={ this.sortingHandler }/> 
+                    {/* <SortingBtns propertyCount={this.props.establishments.length} criteria={this.state.sortCriteria} clicked={ this.sortingHandler }/>  */}
+                    <SortSection propertyCount={this.props.establishments.length} criteria={this.state.sortCriteria}/>
                     <Hotels establishments={this.props.establishments} loading={this.props.loading} />
                 </div>
             </div>

@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Spinner from '../../Components/UI/Spinner/Spinner';
 import Classes from './Hotels.module.css';
 import Hotel from './Hotel/Hotel';
 
-class Hotels extends Component {
+class Hotels extends PureComponent {
+    
     render() {
         return (
             <div className={Classes.Hotels}>

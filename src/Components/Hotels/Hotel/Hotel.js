@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './Hotel.module.css';
 
 const Hotel = (props) => {
-    // console.log(props);
     let successAr = ['Great', 'Excellent', 'Very Good', 'Good', 'Exceptional', 'Magnificent', 'Spectacular',];
     let normalAr = ['Above Average', 'Average', ];
 
@@ -62,4 +61,4 @@ const Hotel = (props) => {
     );
 };
 
-export default Hotel;
+export default React.memo(Hotel);

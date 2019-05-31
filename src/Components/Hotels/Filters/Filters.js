@@ -11,7 +11,6 @@ const Filters = (props) => {
             <div className={Classes.FiltersWrap}>
                 {
                     props.filters.map(filter => {
-                        // console.log(filter);
                         return <Filter 
                                 key={filter.type} 
                                 config={filter} 
@@ -23,8 +22,7 @@ const Filters = (props) => {
                 }
             </div>
         </div>
-        
     );
 };
 
-export default Filters;
+export default React.memo(Filters);

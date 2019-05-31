@@ -9,16 +9,16 @@ const Filter = (props) => {
     let filterType = props.config.type;
     console.log('filterType', filterType);
     let filterBody = props.config.type === "Name" ? 
-                    <TextInput config={props.config} label="Name" filterAdded={ value => props.onNameAdded(value) }/> 
-                    : props.config.options.map( (option, i) =>  { 
-                        return (
-                            <FormControlLabel key={i} control={
-                                <Checkbox key={props.config.type+'-'+i} checked={props.config.value} onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
-                            }
-                            label={option.label}
-                            />
-                        );
-                    });
+            <TextInput config={props.config} label="Name" filterAdded={ value => props.onNameAdded(value) }/> 
+            : props.config.options.map( (option, i) =>  { 
+                return (
+                    <FormControlLabel key={i} control={
+                        <Checkbox key={props.config.type+'-'+i} checked={props.config.value} onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
+                    }
+                    label={option.label}
+                    />
+                );
+            });
 
     return (
         <div className={Classes.Filter}>
@@ -28,4 +28,4 @@ const Filter = (props) => {
     );
 };
 
-export default Filter;
+export default React.memo(Filter);

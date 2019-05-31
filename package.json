@@ -133,5 +133,7 @@
       "react-app"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "react-perf-devtool": "^3.1.8"
+  }
 }
