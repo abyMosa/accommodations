@@ -11,7 +11,14 @@ const Filters = (props) => {
             <div className={Classes.FiltersWrap}>
                 {
                     props.filters.map(filter => {
-                        return <Filter key={filter.type} config={filter} onFilterAdded={(filterType, value) => props.filterAdded(filterType, value)} />
+                        // console.log(filter);
+                        return <Filter 
+                                key={filter.type} 
+                                config={filter} 
+                                onNameAdded={(value) => props.onNameAdded(value)} 
+                                onFilterAdded={(filterType, key, value) => props.filterAdded(filterType, key, value)} 
+                                
+                                />
                     })
                 }
             </div>

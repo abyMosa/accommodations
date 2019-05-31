@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 import hotelData from '../../hotels.json';
-import * as utility from '../utility';
+// import * as utility from '../utility';
 
 export const fetchEstablishmentsStart = () => {
     return{
@@ -38,7 +38,7 @@ export const establishmentsInit = () => {
             if(hotelData){
                 // console.log(hotelData.Establishments);
                 dispatch(fetchEstablishmentsSuccess(hotelData.Establishments));
-                dispatch(setFilters(hotelData.Establishments));
+                // dispatch(setFilters(hotelData.Establishments));
             }else{
                 dispatch(fetchEstablishmentsFail({message: "Data wasnt loaded"}));
             }
@@ -46,26 +46,26 @@ export const establishmentsInit = () => {
     }
 }
 
-export const setFilters = (establishments) => {
-    return dispatch => {
-        let filters = [
-            { type: 'Name', label: 'Filter by Name', value: null },
-            { type: 'Stars', label: 'Filter by rating', value: null, config: { } },
-            { type: 'MinCost', label: 'Your budget', value: null, config: {}},
-            { type: 'UserRatingCount', label: 'Trip Rating', value: null, config: {} },
-            { type: 'UserRating', label: 'User Rating', value: null, config: {} },
-        ];
+// export const setFilters = (establishments) => {
+//     return dispatch => {
+//         let filters = [
+//             { type: 'Name', label: 'Filter by Name', value: null },
+//             { type: 'Stars', label: 'Filter by rating', value: null, config: { } },
+//             { type: 'MinCost', label: 'Your budget', value: null, config: {}},
+//             { type: 'UserRatingCount', label: 'Trip Rating', value: null, config: {} },
+//             { type: 'UserRating', label: 'User Rating', value: null, config: {} },
+//         ];
 
-        filters.map(filter => {
-            if(filter.type !== 'Name'){
-                let minMax = utility.getObjMinMax(establishments, filter.type);
-                let options = utility.setOptions(establishments, minMax, filter.type);
-                filter.config = {...filter.config, minMax, options }
-            }
-            return filter;
-        });
+//         filters.map(filter => {
+//             if(filter.type !== 'Name'){
+//                 let minMax = utility.getObjMinMax(establishments, filter.type);
+//                 let options = utility.setOptions(establishments, minMax, filter.type);
+//                 filter.config = { minMax, options }
+//             }
+//             return filter;
+//         });
 
-        // console.log(filters);
-        dispatch(setFiltersInit(filters));
-    }
-}
+//         // console.log(filters);
+//         dispatch(setFiltersInit(filters));
+//     }
+// }

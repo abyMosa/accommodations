@@ -14,7 +14,6 @@ const SideDrawer = (props) => {
         <React.Fragment>
             <Backdrop show={props.open} clicked={props.closed} />
             <div className={attachedClasses.join(' ')}>
-                {/* <div className={classes.LogoContainer}> <Logo /> </div> */}
                 <nav> <NavigationItems /> </nav>
             </div>
         </React.Fragment>

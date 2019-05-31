@@ -48,7 +48,7 @@ class TextInput extends Component {
         }
 
         // if( this.props.filterAdded )
-            this.props.filterAdded(this.props.config.type, event.target.value);
+            this.props.filterAdded( event.target.value);
     }
     keyStroke = (event) => {
         if(!this.state.touched){
@@ -58,7 +58,7 @@ class TextInput extends Component {
         }
         this.setState({ touched: true });         
         // if( this.props.filterAdded )
-            this.props.filterAdded(this.props.config.type, event.target.value);
+            this.props.filterAdded( event.target.value);
     }
 
     render() {
