@@ -10,7 +10,7 @@
     padding: 25px;
     /* border-radius: 3px; */
     text-align: left;
-    border: 1px solid rgba(0,0,0, .3);
+    /* border: 1px solid rgba(0,0,0, .3); */
     box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
 
     
@@ -31,7 +31,7 @@
 }
 
 .UserRating p{
-    background-color: navy;
+    background-color: #3f51b5;
     min-width: 15px;
     display: inline-block;
     padding: 8px;
@@ -41,7 +41,7 @@
     text-align: center;
     margin: 0px;
     margin-left: 10px;
-
+    min-width: 38px;
 }
 
 .ImgContainer img{
@@ -63,10 +63,10 @@
 }
 .RatingTitle{
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 500;
 }
 .RatingTitle.Success{
-    color: green;
+    color:#3f51b5;
 }
 .RatingTitle.Warning{
     color: #ffcc00;
@@ -100,6 +100,7 @@
     font-weight: bold;
     display: inline-block;
     margin-right: 12px;
+    line-height: 1.5;
 }
 .Location{
     margin-top: 5px;

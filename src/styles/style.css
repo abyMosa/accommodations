@@ -15,7 +15,13 @@ body{
     background-color: #f3f3f3;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
+h1, h2, h3, h4, h5, MuiTypography-body1{
+    font-family: CoHeadlineLt, sans-serif !important;
+}
 
+p{
+    /* font-family: CoHeadlineLt, sans-serif !important; */
+}
 .rflex{
     display: flex;
     justify-content: flex-start;
@@ -30,8 +36,21 @@ body{
 .ml-1{
     margin-left: 10px;
 }
+.sec-title{
+    font-weight: 500;
+    margin: 8px 0px;
+    border-bottom: 1px dotted rgba(0,0,0,.3);
+    padding-bottom: 3px;
+    font-family: CoHeadlineRg, sans-serif !important;
+    text-transform: uppercase;
+}
 .bold{
     font-weight: 500;
+    /* font-family: CoHeadlineRg, sans-serif !important; */
+    font-family: 'Montserrat', sans-serif;
+}
+.uppercase{
+    text-transform: uppercase;
 }
 .heavy{
     font-weight: bold;
@@ -67,4 +86,41 @@ body{
 }
 .MuiFormControlLabel-root{
     width: 100%!important;
+}
+
+/* first for IE 4–8 */
+@font-face {
+    font-family: CoHeadlineLt;
+    src: url("../assets/fonts/CoHeadline/CoHeadline_LtWeb.eot");
+  }
+  
+  @font-face {
+    font-family: CoHeadlineBd;
+    src: url("../assets/fonts/CoHeadline/CoHeadline_BdWeb.eot");
+  }
+  
+  @font-face {
+    font-family: CoHeadlineRg;
+    src: url("../assets/fonts/CoHeadline/CoHeadline_RgWeb.eot");
+  }
+  
+  /* then for WOFF-capable browsers */
+  @font-face {
+    font-family: CoHeadlineLt;
+    src: url("../assets/fonts/CoHeadline/CoHeadline_LtWeb.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: CoHeadlineBd;
+    src: url("../assets/fonts/CoHeadline/CoHeadline_BdWeb.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: CoHeadlineRg;
+    src: url("../assets/fonts/CoHeadline/CoHeadline_RgWeb.woff") format("woff");
+  }
+
+  .thin {
+    font-family: CoHeadlineLt, sans-serif !important;
+    color: #262626;
 }

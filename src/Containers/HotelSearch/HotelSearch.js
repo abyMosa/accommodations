@@ -23,11 +23,11 @@ class HotelSearch extends Component {
             ]},
 
             { type: 'MinCost', label: 'Your budget', value: null, options: [ 
-                { key: 206, label: "£206 - £1199 per night", range: [206, 1199], value: false, count: null },
-                { key: 1201, label: "£1201 - £2499 per night", range: [1200, 2499], value: false, count: null },
-                { key: 2500, label: "£2500 - £3999 per night", range: [2500, 3999], value: false, count: null },
-                { key: 4000, label: "£4000 - £5499 per night", range: [4000, 5499], value: false, count: null },
-                { key: 5500, label: "£5500 - £7000 per night", range: [5500, 7000], value: false, count: null },
+                { key: 206, label: "£206 - £1199", range: [206, 1199], value: false, count: null },
+                { key: 1201, label: "£1201 - £2499", range: [1200, 2499], value: false, count: null },
+                { key: 2500, label: "£2500 - £3999", range: [2500, 3999], value: false, count: null },
+                { key: 4000, label: "£4000 - £5499", range: [4000, 5499], value: false, count: null },
+                { key: 5500, label: "£5500 - £7000", range: [5500, 7000], value: false, count: null },
             ]},
             { type: 'UserRatingCount', label: 'Trip Rating', value: null, options: [
                 { key: 0, label: "0 - 162", range: [0, 162], value: false, count: null },

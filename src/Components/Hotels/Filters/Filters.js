@@ -12,7 +12,7 @@ class Filters extends Component {
     render() {
         return (
             <div className={Classes.Filters}>
-                <p className="ma-0 heavy">Filter By:</p>
+                <p className="ma-0 sec-title">Filter By:</p>
             
                 <div className={Classes.FiltersWrap}>
                     {

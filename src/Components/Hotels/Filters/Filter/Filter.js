@@ -14,7 +14,7 @@ const Filter = (props) => {
                 return (
                     <React.Fragment key={option.key}>
                         <FormControlLabel key={option.key} control={
-                            <Checkbox checked={props.config.value} onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
+                            <Checkbox color="primary" checked={props.config.value} onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
                         }
                         label={option.label}
                         />

@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './Hotel.module.css';
-import Typography from '@material-ui/core/Typography';
 
 const Hotel = (props) => {
     let successAr = ['Great', 'Excellent', 'Very Good', 'Good', 'Exceptional', 'Magnificent', 'Spectacular',];
@@ -26,10 +25,8 @@ const Hotel = (props) => {
                 <div className={classes.HotelHeader}>
                     <div className={classes.TitleContainer}>
                         <div className={classes.HotelTitleWrap}>
-                            {/* <div className={classes.HotelTitle}>{props.establishment.Name}</div> */}
-                            <Typography variant="h4" gutterBottom>
-                                {props.establishment.Name}
-                            </Typography>
+                            <div className={[classes.HotelTitle, 'thin'].join(' ')}>{props.establishment.Name}</div>
+                            {/* <Typography variant="h5" gutterBottom> {props.establishment.Name} </Typography> */}
                             <div className={classes.StarsWrap}> <div className={classes.Stars}>{stars}</div> </div>
                         </div>
                         
@@ -51,7 +48,7 @@ const Hotel = (props) => {
                 </div>
                 
                 <div className={[classes.HotelDetails, "flex row wrap"].join(' ')}>
-                    <div > <p>Type: {props.establishment.EstablishmentType}</p> </div>
+                    <div className="bold"> <p >Type: {props.establishment.EstablishmentType}</p> </div>
                     <div>
                         <p className="mb-0 text-sm">Price per person</p>
                         <p className="ma-0"> <span className="heavy text-lg"> £{props.establishment.MinCost.toFixed(2)}</span><span> GBP</span></p>
