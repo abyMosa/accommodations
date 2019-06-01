@@ -1,23 +1,17 @@
 import React from 'react';
 import Classes from './SortSection.module.css';
+import IpSelect from '../../UI/IpSelect/IpSelect';
+import Typography from '@material-ui/core/Typography';
 
 const SortSection = (props) => {
-    
-    let criteriaAr = Object.keys(props.criteria).map( key => {
-        // let btnClasses = props.criteria[key]? [Classes.ActiveBtn, Classes.SortingBtn].join(' '): Classes.SortingBtn;
-        return(
-            // <Button classes={btnClasses} value={key} key={key} clicked={props.clicked}>{key}</Button>
-            <option value={key} key={key}>{key}</option>
-        )
-    });
+
     return (
-        <div className={Classes.SortingBtnsWrap}>
-            { props.propertyCount ? <p>{props.propertyCount} properties found</p>: null }
-            <div className={Classes.SortingBtns}>
-                <select >
-                    {criteriaAr}
-                </select>
-                
+        <div className={Classes.SortSection}>
+            <div> { props.propertyCount ? <Typography variant="h5" gutterBottom>{props.propertyCount} properties found</Typography>: null }</div>
+            {/* <Typography variant="h4" gutterBottom></Typography> */}
+            {/* <div>{ props.propertyCount ? <p>{props.propertyCount} properties found</p>: null }</div> */}
+            <div> 
+                <IpSelect label="Sort by" options={props.sort.options} onChange={value => props.handleChange(value)} /> 
             </div>
         </div>
     );

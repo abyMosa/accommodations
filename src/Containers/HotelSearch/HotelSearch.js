@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from '../../store/actions/index';
-import SortingBtns from '../../Components/Hotels/SortingBtns/SortingBtns';
 import Filters from '../../Components/Hotels/Filters/Filters';
 import Hotels from '../../Components/Hotels/Hotels';
 import Classes from './HotelSearch.module.css';
@@ -42,26 +41,43 @@ class HotelSearch extends Component {
                 { key: 8, label: "8 - 10", range: [8, 10], value: false, count: null },
             ]},
         ],
-        sortCriteria: { Distance: false, Stars: false, TrpRating: false, UserRating: false, MinCost: false }
+        sort: {
+            value: null,
+            options: [ 
+                { key: 'distance', label: 'Distance', selected: false },
+                { key: 'stars', label: 'Star ratings', selected: false },
+                { key: 'trpRating', label: 'Trip rating', selected: false },
+                { key: 'userRating', label: 'User rating', selected: false },
+                { key: 'minCost', label: 'Budget', selected: false },
+            ]
+        }
     }
 
     // shouldComponentUpdate(nextProps, nextState){
         // return ( (this.state !== nextState) && (this.props !== nextProps) );
     // }
 
+    componentWillUpdate(){
+
+    }
     componentDidMount(){
         this.props.loadHotels();
     }
+    
+    handleSortChange = (key) => {
+        let newSort = { ...this.state.sort };
+        let newOptions =  [...newSort.options];
+        newOptions.map(option => {
+            if(option.key === key){
+                option.selected = true;
+            }else{
+                option.selected = false;
+            }
+            return option;
+        });
 
-    sortingHandler = (e) => {
-        let property = e.target.value;
-        let value = this.state.sortCriteria[property];
-        let sortCriteriaCopy = {...this.state.sortCriteria}
-        sortCriteriaCopy = {
-            ...sortCriteriaCopy,
-            [property] : !value
-        }
-        this.setState({ sortCriteria : sortCriteriaCopy});
+        let updatedSort = { ...newSort, options: newOptions, value: key }
+        this.setState({ sort : updatedSort });
     }
 
     filterAddedHandler = (filterType, key, value) => {
@@ -74,7 +90,10 @@ class HotelSearch extends Component {
     }
     
     onNameChanged = (value) => {
-        console.log(value);
+        let filters = [...this.state.filters];
+        let nameFilter = filters.find( f => f.type === "Name" );
+        nameFilter.value = value;
+        this.setState({filters: filters});
     }
 
     render() {
@@ -88,8 +107,7 @@ class HotelSearch extends Component {
                     />
                 </div>
                 <div className="col-9"> 
-                    {/* <SortingBtns propertyCount={this.props.establishments.length} criteria={this.state.sortCriteria} clicked={ this.sortingHandler }/>  */}
-                    <SortSection propertyCount={this.props.establishments.length} criteria={this.state.sortCriteria}/>
+                    <SortSection sort={this.state.sort}  propertyCount={this.props.establishments.length} handleChange={value =>  this.handleSortChange(value)}/>
                     <Hotels establishments={this.props.establishments} loading={this.props.loading} />
                 </div>
             </div>

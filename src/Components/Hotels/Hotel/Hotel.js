@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Hotel.module.css';
+import Typography from '@material-ui/core/Typography';
 
 const Hotel = (props) => {
     let successAr = ['Great', 'Excellent', 'Very Good', 'Good', 'Exceptional', 'Magnificent', 'Spectacular',];
@@ -25,7 +26,10 @@ const Hotel = (props) => {
                 <div className={classes.HotelHeader}>
                     <div className={classes.TitleContainer}>
                         <div className={classes.HotelTitleWrap}>
-                            <div className={classes.HotelTitle}>{props.establishment.Name}</div>
+                            {/* <div className={classes.HotelTitle}>{props.establishment.Name}</div> */}
+                            <Typography variant="h4" gutterBottom>
+                                {props.establishment.Name}
+                            </Typography>
                             <div className={classes.StarsWrap}> <div className={classes.Stars}>{stars}</div> </div>
                         </div>
                         

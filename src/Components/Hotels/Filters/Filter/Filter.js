@@ -12,11 +12,13 @@ const Filter = (props) => {
             <TextInput config={props.config} label="Name" filterAdded={ value => props.onNameAdded(value) }/> 
             : props.config.options.map( (option, i) =>  { 
                 return (
-                    <FormControlLabel key={i} control={
-                        <Checkbox key={props.config.type+'-'+i} checked={props.config.value} onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
-                    }
-                    label={option.label}
-                    />
+                    <React.Fragment key={option.key}>
+                        <FormControlLabel key={option.key} control={
+                            <Checkbox checked={props.config.value} onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
+                        }
+                        label={option.label}
+                        />
+                    </React.Fragment>
                 );
             });
 

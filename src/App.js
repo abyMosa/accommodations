@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import './styles/style.css';
+import 'typeface-roboto';
 import { Route, Switch } from 'react-router-dom';
 import Layout from './hoc/Layout/Layout';
 import HotelSearch from './Containers/HotelSearch/HotelSearch';

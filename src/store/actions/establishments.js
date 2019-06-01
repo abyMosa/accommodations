@@ -42,7 +42,7 @@ export const establishmentsInit = () => {
             }else{
                 dispatch(fetchEstablishmentsFail({message: "Data wasnt loaded"}));
             }
-        }, 200);
+        }, 10);
     }
 }
 
