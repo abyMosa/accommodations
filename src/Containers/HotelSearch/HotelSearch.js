@@ -57,13 +57,16 @@ class HotelSearch extends Component {
         // return ( (this.state !== nextState) && (this.props !== nextProps) );
     // }
 
-    componentWillUpdate(){
-
+    componentWillReceiveProps(nextProps){
+        if(nextProps.establishments !== this.props.establishments){
+            let establishments = [...nextProps.establishments];
+            this.setState({filteredEstablishments: establishments});
+        }
     }
     componentDidMount(){
         this.props.loadHotels();
     }
-    
+
     handleSortChange = (key) => {
         let newSort = { ...this.state.sort };
         let newOptions =  [...newSort.options];
@@ -97,6 +100,7 @@ class HotelSearch extends Component {
     }
 
     render() {
+
         return (
             <div className={[Classes.HotelSearch, 'grid'].join(' ')}>
                 <div className="col-3"> 
@@ -108,7 +112,7 @@ class HotelSearch extends Component {
                 </div>
                 <div className="col-9"> 
                     <SortSection sort={this.state.sort}  propertyCount={this.props.establishments.length} handleChange={value =>  this.handleSortChange(value)}/>
-                    <Hotels establishments={this.props.establishments} loading={this.props.loading} />
+                    <Hotels establishments={this.state.filteredEstablishments} loading={this.props.loading} />
                 </div>
             </div>
         );
