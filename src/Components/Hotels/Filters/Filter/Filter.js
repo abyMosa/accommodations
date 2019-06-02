@@ -13,10 +13,12 @@ const Filter = (props) => {
     let filterBody = props.config.type === "Name" ? 
             <TextInput config={props.config} label="Name" filterAdded={ value => props.onNameAdded(value) }/> 
             : props.config.options.map( option =>  { 
+                // console.log( 'rerender', option);
                 return (
                     <React.Fragment key={option.key}>
                         <FormControlLabel key={option.key} control={
-                            <Checkbox color="primary" checked={option.value} onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
+                            // <Checkbox color="primary" checked={option.value} onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
+                            <Checkbox color="primary" onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
                         }
                         label={option.label}
                         />
@@ -32,4 +34,4 @@ const Filter = (props) => {
     );
 };
 
-export default React.memo(Filter);
+export default Filter;
