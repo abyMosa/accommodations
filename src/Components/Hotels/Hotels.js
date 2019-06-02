@@ -25,9 +25,6 @@ class Hotels extends Component {
     }
 
     render() {
-        console.log('[render]', this.props.establishments.length > 0? this.props.establishments[0].EstablishmentId : 'less than zero');
-
-
         return (
             <div className={Classes.Hotels}>
                 {

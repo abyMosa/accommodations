@@ -32,13 +32,10 @@ export const setFiltersInit = (filters) => {
 
 export const establishmentsInit = () => {
     return dispatch => {
-        // real life sinario will be async API call
         dispatch(fetchEstablishmentsStart());
         setTimeout(() => {
             if(hotelData){
-                // console.log(hotelData.Establishments);
-                dispatch(fetchEstablishmentsSuccess(hotelData.Establishments));
-                // dispatch(setFilters(hotelData.Establishments));
+                dispatch(fetchEstablishmentsSuccess(hotelData.Establishments.sort((a,b) => a.EstablishmentId - b.EstablishmentId) ));
             }else{
                 dispatch(fetchEstablishmentsFail({message: "Data wasnt loaded"}));
             }
@@ -46,26 +43,3 @@ export const establishmentsInit = () => {
     }
 }
 
-// export const setFilters = (establishments) => {
-//     return dispatch => {
-//         let filters = [
-//             { type: 'Name', label: 'Filter by Name', value: null },
-//             { type: 'Stars', label: 'Filter by rating', value: null, config: { } },
-//             { type: 'MinCost', label: 'Your budget', value: null, config: {}},
-//             { type: 'UserRatingCount', label: 'Trip Rating', value: null, config: {} },
-//             { type: 'UserRating', label: 'User Rating', value: null, config: {} },
-//         ];
-
-//         filters.map(filter => {
-//             if(filter.type !== 'Name'){
-//                 let minMax = utility.getObjMinMax(establishments, filter.type);
-//                 let options = utility.setOptions(establishments, minMax, filter.type);
-//                 filter.config = { minMax, options }
-//             }
-//             return filter;
-//         });
-
-//         // console.log(filters);
-//         dispatch(setFiltersInit(filters));
-//     }
-// }
