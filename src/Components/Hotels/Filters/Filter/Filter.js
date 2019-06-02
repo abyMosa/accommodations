@@ -9,11 +9,9 @@ const Filter = (props) => {
     let labelClasses = props.config.type === "Name"? [Classes.Label, Classes.NameLabel] : [Classes.Label];
 
     let filterType = props.config.type;
-    // console.log('filterType', filterType);
     let filterBody = props.config.type === "Name" ? 
             <TextInput config={props.config} label="Name" filterAdded={ value => props.onNameAdded(value) }/> 
             : props.config.options.map( option =>  { 
-                // console.log( 'rerender', option);
                 return (
                     <React.Fragment key={option.key}>
                         <FormControlLabel key={option.key} control={

@@ -101,11 +101,8 @@ class Filters extends Component {
                             return <Filter 
                                     key={filter.type} 
                                     config={filter} 
-                                    // onNameAdded={(value) => this.props.onNameAdded(value)} 
                                     onNameAdded={(value) => this.nameChanged(value)} 
-                                    // onFilterAdded={(filterType, key, value) => this.props.filterAdded(filterType, key, value)} 
                                     onFilterAdded={(filterType, key, value) => this.filterAddedHandler(filterType, key, value)} 
-                                    
                                     />
                         })
                     }
