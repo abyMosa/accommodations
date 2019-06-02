@@ -5,6 +5,22 @@ export const updateObject = (oldObject, updatedProperties) => {
     };
 };
 
+export const isNumberInRange = (x, minMax) => {
+    return x >= minMax[0] && x <= minMax[1];
+}
+
+export const IsNumberInAnyRanges = (x, rangesAr) => {
+    let isInRange = false;
+    rangesAr.forEach(range => {
+        if(isNumberInRange(x, range))
+            isInRange = true;
+    });
+
+    return isInRange;
+}
+
+
+
 // export const getObjMinMax = (arr, property) => {
 //     let min = arr.reduce((min, arr) => arr[property] < min ? arr[property] : min, arr[0][property]);
 //     let max = arr.reduce((max, arr) => arr[property] > max ? arr[property] : max, arr[0][property]);
