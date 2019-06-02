@@ -5,9 +5,12 @@
 }
 .Label{
     font-weight: 500;
-    margin: 8px 0px;
+    margin: 48px 0px 10px;
     border-bottom: 1px dotted rgba(0,0,0,.3);
-    padding-bottom: 3px;
+    padding-bottom: 15px;
     font-family: CoHeadlineRg, sans-serif !important;
     text-transform: uppercase;
+}
+.NameLabel{
+    border-bottom: none;
 }

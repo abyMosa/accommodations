@@ -6,15 +6,17 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 const Filter = (props) => {
     
+    let labelClasses = props.config.type === "Name"? [Classes.Label, Classes.NameLabel] : [Classes.Label];
+
     let filterType = props.config.type;
-    console.log('filterType', filterType);
+    // console.log('filterType', filterType);
     let filterBody = props.config.type === "Name" ? 
             <TextInput config={props.config} label="Name" filterAdded={ value => props.onNameAdded(value) }/> 
-            : props.config.options.map( (option, i) =>  { 
+            : props.config.options.map( option =>  { 
                 return (
                     <React.Fragment key={option.key}>
                         <FormControlLabel key={option.key} control={
-                            <Checkbox color="primary" checked={props.config.value} onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
+                            <Checkbox color="primary" checked={option.value} onChange={ (event) => props.onFilterAdded(filterType, option.key, event.target.checked)} /> 
                         }
                         label={option.label}
                         />
@@ -24,7 +26,7 @@ const Filter = (props) => {
 
     return (
         <div className={Classes.Filter}>
-            <p className={Classes.Label}>{props.config.label}</p>
+            <p className={labelClasses.join(' ')}>{props.config.label}</p>
             {filterBody}
         </div>
     );

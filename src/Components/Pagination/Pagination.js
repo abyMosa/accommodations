@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
+import Classes from './Pagination.module.css';
+import Button from '@material-ui/core/Button';
 
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
@@ -23,22 +25,26 @@ const range = (from, to, step = 1) => {
 class Pagination extends Component {
 
     constructor(props) {
-      super(props);
-      const { totalRecords = null, pageLimit = 30, pageNeighbours = 0 } = props;
-  
-      this.pageLimit = typeof pageLimit === 'number' ? pageLimit : 30;
-      this.totalRecords = typeof totalRecords === 'number' ? totalRecords : 0;
-  
-      // pageNeighbours can be: 0, 1 or 2
-      this.pageNeighbours = typeof pageNeighbours === 'number'
-        ? Math.max(0, Math.min(pageNeighbours, 2))
-        : 0;
-  
-      this.totalPages = Math.ceil(this.totalRecords / this.pageLimit);
-  
-      this.state = { currentPage: 1 };
+        super(props);
+        const { totalRecords = null, pageLimit = 30, pageNeighbours = 0 } = props;
+
+        this.pageLimit = typeof pageLimit === 'number' ? pageLimit : 30;
+        this.totalRecords = typeof totalRecords === 'number' ? totalRecords : 0;
+        
+        // pageNeighbours can be: 0, 1 or 2
+        this.pageNeighbours = typeof pageNeighbours === 'number' ? Math.max(0, Math.min(pageNeighbours, 2)) : 0;
+
+        this.totalPages = Math.ceil(this.totalRecords / this.pageLimit);
+        this.state = { currentPage: 1 };
     }
 
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.totalRecords !== this.props.totalRecords){
+           this.totalRecords = nextProps.totalRecords;
+           this.totalPages = Math.ceil(this.totalRecords / this.pageLimit);
+        }
+    }
 
 
     fetchPageNumbers = () => {
@@ -134,41 +140,29 @@ class Pagination extends Component {
     
         const { currentPage } = this.state;
         const pages = this.fetchPageNumbers();
-    
+
         return (
           <Fragment>
-            <nav aria-label="Countries Pagination">
-              <ul className="pagination">
-                { pages.map((page, index) => {
-    
-                  if (page === LEFT_PAGE) return (
-                    <li key={index} className="page-item">
-                      <a className="page-link" href="#" aria-label="Previous" onClick={this.handleMoveLeft}>
-                        <span aria-hidden="true">&laquo;</span>
-                        <span className="sr-only">Previous</span>
-                      </a>
-                    </li>
-                  );
-    
-                  if (page === RIGHT_PAGE) return (
-                    <li key={index} className="page-item">
-                      <a className="page-link" href="#" aria-label="Next" onClick={this.handleMoveRight}>
-                        <span aria-hidden="true">&raquo;</span>
-                        <span className="sr-only">Next</span>
-                      </a>
-                    </li>
-                  );
-    
-                  return (
-                    <li key={index} className={`page-item${ currentPage === page ? ' active' : ''}`}>
-                      <a className="page-link" href="#" onClick={ this.handleClick(page) }>{ page }</a>
-                    </li>
-                  );
-    
-                }) }
-    
-              </ul>
-            </nav>
+                <ul className={Classes.Pagination}>
+                    { pages.map((page, index) => {
+        
+                        if (page === LEFT_PAGE) 
+                            return <li key={index}> <Button onClick={ this.handleMoveLeft } color="secondary" className={Classes.PaginationBtn}><span aria-hidden="true">&laquo;</span> <span className="sr-only">Previous</span></Button> </li>
+                        
+        
+                        if (page === RIGHT_PAGE)  
+                            return <li key={index}> <Button onClick={ this.handleMoveRight } color="secondary" className={Classes.PaginationBtn}><span className="sr-only">Next</span> <span aria-hidden="true">&raquo;</span></Button> </li>
+                        
+
+                        return (
+                            <li key={index} className={currentPage === page ? "lklkl": null}>
+                                <Button onClick={ this.handleClick(page) } color={currentPage === page? "primary": "secondary"} className={Classes.PaginationBtn}>{ page }</Button>
+                            </li>
+                        );
+        
+                    }) }
+      
+                </ul>
           </Fragment>
         );
     
