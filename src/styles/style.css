@@ -36,6 +36,15 @@ p{
 .ml-1{
     margin-left: 10px;
 }
+.mt-1{
+    margin-top: 10px;
+}
+.mb-1{
+    margin-bottom: 10px;
+}
+.mb-2{
+    margin-bottom: 15px;
+}
 .sec-title{
     font-weight: 500;
     margin: 8px 0px;
