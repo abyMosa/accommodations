@@ -1,4 +1,8 @@
-// import 'react-app-polyfill/ie11';
+import "core-js";
+import "core-js/features/set";
+import "core-js/proposals/reflect-metadata";
+import "core-js/stage/2";
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
