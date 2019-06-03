@@ -6,6 +6,7 @@ import Hotels from '../../Components/Hotels/Hotels';
 import Classes from './HotelSearch.module.css';
 import SortSection from '../../Components/Hotels/SortSection/SortSection';
 import * as utility from '../../store/utility';
+import Grid from '@material-ui/core/Grid';
 
 class HotelSearch extends Component {
 
@@ -67,16 +68,26 @@ class HotelSearch extends Component {
     render() {
         return (
             <div className={[Classes.HotelSearch, 'grid'].join(' ')}>
-                <div className="col-3"> 
-                    <Filters 
-                    filterAdded={(filterType, key, value) => this.filterAddedHandler(filterType, key, value)}
-                    onFilterEstablishments={filtersObj => this.setFilteredEstablishments(filtersObj)}
-                    />
-                </div>
-                <div className="col-9"> 
-                    <SortSection sort={this.state.sort}  propertyCount={this.state.filteredEstablishments.length} onSortChanged={sortObj =>  this.sortFilteredEstablishments(sortObj)}/>
-                    <Hotels establishments={this.state.filteredEstablishments} loading={this.props.loading} />
-                </div>
+                <Grid container className={Classes.root} spacing={2}>
+                    <Grid item xa={12}>
+                        
+                        <Grid container justify="center" alignItems="flex-start" spacing={2}>
+                            <Grid item md={3} xa={12}>
+                                <Filters 
+                                filterAdded={(filterType, key, value) => this.filterAddedHandler(filterType, key, value)}
+                                onFilterEstablishments={filtersObj => this.setFilteredEstablishments(filtersObj)}
+                                />
+                            </Grid>
+                            <Grid item md={9} xa={12}>
+                                <div>
+                                    <SortSection sort={this.state.sort}  propertyCount={this.state.filteredEstablishments.length} onSortChanged={sortObj =>  this.sortFilteredEstablishments(sortObj)}/>
+                                    <Hotels establishments={this.state.filteredEstablishments} loading={this.props.loading} />
+                                </div>
+                            </Grid>
+                        </Grid>
+                        
+                    </Grid>
+                </Grid>
             </div>
         );
     }

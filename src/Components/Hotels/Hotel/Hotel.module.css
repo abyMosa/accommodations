@@ -2,21 +2,18 @@
     width: 100%;
     min-height: 200px;
     background-color: white;
-    /* margin: 15px; */
-    /* margin-top: 0px; */
     margin-bottom: 25px;
     display: flex;
     box-sizing: border-box;
     padding: 25px;
-    /* border-radius: 3px; */
     text-align: left;
-    /* border: 1px solid rgba(0,0,0, .3); */
     box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
-
-    
+    flex-direction: row;
+    flex-flow: row;
+    /* flex-wrap: wrap; */
 }
+
 .ImgContainer{
-    /* width: 200px; */
     flex-basis: 200px;
     flex-grow: 0;
 }
@@ -47,7 +44,6 @@
 .ImgContainer img{
     max-width: 200px;
     border-radius: 4px;
-
 }
 .HotelHeader{
     display: flex;
@@ -69,7 +65,7 @@
     color:#3f51b5;
 }
 .RatingTitle.Warning{
-    color: #ffcc00;
+    color: #eac329;
 }
 .RatingTitle.Error{
     color: Red;
@@ -81,7 +77,6 @@
     display: inline-block;
 }
 .Stars{
-    /* display: inline-block; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -114,5 +109,39 @@
 }
 .HotelDetails div:last-child{
     text-align: right;
-    /* font-weight: bold; */
+}
+
+@media(max-width: 500px){
+    .Hotel{
+        flex-direction: column;
+        flex-flow: column;
+        max-width: 100%;
+        box-shadow: none;
+    }
+    .ImgContainer{
+        flex-basis: 100%;
+        flex-grow: 0;
+    }
+    .ImgContainer img{
+        max-width: 100%;
+        border-radius: 4px;
+        margin-bottom: 25px;
+    }
+    .ContentContainer{
+        flex-grow: 1;
+        padding: 0px;
+    }
+    .HotelHeader{
+        flex-direction: column;
+    }
+    .ReviewContainer{
+        flex-basis: 0px;
+        text-align: left;
+    }
+    .UserRatingWrap{
+        display: flex;
+        flex-basis: 0px;
+        text-align: left;
+        margin-bottom: 12px;
+    }
 }

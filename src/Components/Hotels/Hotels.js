@@ -29,6 +29,7 @@ class Hotels extends Component {
             <div className={Classes.Hotels}>
                 {
                     this.props.loading? <Spinner /> : 
+                    this.state.currentEstablishments.length === 0 ? <p>Sorry, We couldn't find any hotel with your search term, please adjust your search critiria and try again!</p> :
                     this.state.currentEstablishments.map(est => {
                         return(
                             <Hotel key={est.EstablishmentId} establishment={est}/>

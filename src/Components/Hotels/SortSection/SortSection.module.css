@@ -22,3 +22,20 @@
     font-size: 20px;
     /* text-transform: uppercase; */
 }
+
+@media(max-width: 500px){
+    .SortSection{
+        flex-direction: column;  
+        text-align: left;
+        justify-content: flex-start;
+        align-content: flex-start;   
+        padding: 15px;  
+    }
+    .SortSection > div{
+        max-width: 100%;
+        min-width: auto;
+        width: 100%;
+        margin-bottom: 20px;
+
+    }
+}

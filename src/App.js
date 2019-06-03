@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import './styles/style.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Layout from './hoc/Layout/Layout';
 import HotelSearch from './Containers/HotelSearch/HotelSearch';
 // import Home from './Components/Home/Home';
@@ -16,6 +16,8 @@ function App() {
           <Switch>
             {/* <Route path="/search" exact component={HotelSearch} /> */}
             <Route path="/" exact component={HotelSearch} />
+            <Redirect from="*" to="/"/>
+            
           </Switch>
         </Layout>
     </div>
