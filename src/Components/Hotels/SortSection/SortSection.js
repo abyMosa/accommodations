@@ -36,7 +36,7 @@ class SortSection extends Component {
     render() {
         return (
             <div className={Classes.SortSection}>
-                <div className="bold">{ this.props.propertyCount ? this.props.propertyCount + " Properties found": null }</div>
+                <div className={[Classes.CountResults, "thin"].join(' ')}>{ this.props.propertyCount ? this.props.propertyCount + " Properties found": null }</div>
                 <div> 
                     <IpSelect label="Sort by" options={this.state.sort.options} onChange={value => this.handleSortChange(value)} /> 
                 </div>

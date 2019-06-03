@@ -10,7 +10,7 @@ const Filter = (props) => {
 
     let filterType = props.config.type;
     let filterBody = props.config.type === "Name" ? 
-            <TextInput config={props.config} label="Name" filterAdded={ value => props.onNameAdded(value) }/> 
+            <TextInput config={props.config} label={props.config.label} filterAdded={ value => props.onNameAdded(value) }/> 
             : props.config.options.map( option =>  { 
                 return (
                     <React.Fragment key={option.key}>

@@ -1,0 +1,11 @@
+.Logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Logo svg{
+    fill: #f50057;
+    height: 30px;
+    width: 30px;
+    margin-right: 7px;
+}

@@ -2,6 +2,9 @@ import React from 'react';
 import classes from './Hotel.module.css';
 import Button from '@material-ui/core/Button';
 
+import HotelIcon from '@material-ui/icons/Hotel';
+import { People, BeachAccess, HotTub, Spa, LocationCity, Domain } from '@material-ui/icons';
+
 const Hotel = (props) => {
     let successAr = ['Great', 'Excellent', 'Very Good', 'Good', 'Exceptional', 'Magnificent', 'Spectacular',];
     let normalAr = ['Above Average', 'Average', ];
@@ -48,13 +51,20 @@ const Hotel = (props) => {
                 </div>
                 
                 <div className={[classes.HotelDetails, "flex row wrap"].join(' ')}>
-                    <div className="bold"> <p >Type: {props.establishment.EstablishmentType}</p> </div>
+                    <div className="bold">
+                        { props.establishment.EstablishmentType === "Hotel" ? <HotelIcon /> : <Domain /> }
+                        <BeachAccess />
+                        <HotTub />
+                        <Spa />
+                        <LocationCity />
+                        <p >Type: {props.establishment.EstablishmentType}</p> 
+                    </div>
                     <div>
-                        <p className="mb-0 text-sm">Price per person</p>
+                        <People />
+                        <p className="ma-0 text-sm">Price for two adults</p>
                         <p className="ma-0"> <span className="heavy text-lg"> £{props.establishment.MinCost.toFixed(2)}</span><span> GBP</span></p>
                         <p className="ma-0 text-sm mb-2">Includes taxes and charges</p>
-
-                        <Button variant="contained" color="secondary" size="large"> See availability </Button>
+                        <Button variant="outlined" color="secondary"  > See availability </Button>
                     </div>
                 </div>
                 

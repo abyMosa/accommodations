@@ -12,7 +12,7 @@ html, body{
     padding: 0px;
 }
 body{
-    background-color: #f3f3f3;
+    
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 h1, h2, h3, h4, h5, MuiTypography-body1{
@@ -132,4 +132,14 @@ p{
   .thin {
     font-family: CoHeadlineLt, sans-serif !important;
     color: #262626;
+}
+
+.MuiAppBar-colorPrimary{
+    /* background-color: #383a41!important; */
+    background-color: #FFFFFF!important;
+    color: #000000!important;
+}
+
+.MuiButton-root{
+    border-radius: 0px!important;
 }

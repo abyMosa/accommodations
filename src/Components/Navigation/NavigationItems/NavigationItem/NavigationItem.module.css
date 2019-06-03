@@ -31,7 +31,7 @@
     
     
     .NavigationItem a{
-        /* color: white; */
+        color: black;
         height: 100%;
         padding: 10px;
         border-bottom: 4px solid transparent;
@@ -42,6 +42,6 @@
     .NavigationItem a.active{
         /* background-color: #8f5c2c; */
         /* border-bottom: 4px solid #40a4c8; */
-        color: white;
+        color: #f50057;
     }
 }
