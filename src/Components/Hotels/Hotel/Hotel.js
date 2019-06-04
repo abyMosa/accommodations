@@ -20,14 +20,14 @@ const Hotel = (props) => {
     }
     
     return (
-        <div className={[classes.Hotel, 'rflex'].join(' ')}>
-            <div className={[classes.ImgContainer, 'flexItem'].join(' ')}>
+        <div className={[classes.Hotel,].join(' ')}>
+            <div className={[classes.ImgContainer, 'col col-md-4'].join(' ')}>
                 <img src={props.establishment.ImageUrl} alt={props.establishment.Name}/>
             </div>
-            <div className={classes.ContentContainer}>
+            <div className={[classes.ContentContainer, 'col col-md-8'].join(' ')}>
 
-                <div className={classes.HotelHeader}>
-                    <div className={classes.TitleContainer}>
+                <div className={[classes.HotelHeader, "row"].join(' ')}>
+                    <div className={[classes.TitleContainer, 'col col-md-8'].join(' ')}>
                         <div className={classes.HotelTitleWrap}>
                             <div className={[classes.HotelTitle, 'thin'].join(' ')}>{props.establishment.Name}</div>
                             <div className={classes.StarsWrap}> <div className={classes.Stars}>{stars}</div> </div>
@@ -40,7 +40,7 @@ const Hotel = (props) => {
                     </div>
                     
 
-                    <div className={classes.UserRatingWrap}>
+                    <div className={[classes.UserRatingWrap, 'col col-md-4'].join(' ')}>
                         <div className={classes.ReviewContainer}>
                             <p className={[classes.RatingTitle, statusClass, 'ma-0'].join(' ')}> {props.establishment.UserRatingTitle} </p>
                             <p className={[classes.Small, 'ma-0'].join(' ')}> {props.establishment.UserRatingCount} { props.establishment.UserRatingCount === 1 ? "review" : "reviews"}</p>
@@ -50,8 +50,8 @@ const Hotel = (props) => {
 
                 </div>
                 
-                <div className={[classes.HotelDetails, "flex row wrap"].join(' ')}>
-                    <div className="bold">
+                <div className={[classes.HotelDetails, "row"].join(' ')}>
+                    <div className={["bold", "col-md-6", classes.SGVTypes].join(' ')}>
                         { props.establishment.EstablishmentType === "Hotel" ? <HotelIcon /> : <Domain /> }
                         <BeachAccess />
                         <HotTub />
@@ -59,7 +59,7 @@ const Hotel = (props) => {
                         <LocationCity />
                         <p >Type: {props.establishment.EstablishmentType}</p> 
                     </div>
-                    <div>
+                    <div className="col-md-6">
                         <People />
                         <p className="ma-0 text-sm">Price for two adults</p>
                         <p className="ma-0"> <span className="heavy text-lg"> £{props.establishment.MinCost.toFixed(2)}</span><span> GBP</span></p>
@@ -71,6 +71,7 @@ const Hotel = (props) => {
 
             </div>
         </div>
+        
     );
 };
 

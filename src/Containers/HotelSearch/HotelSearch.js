@@ -67,45 +67,30 @@ class HotelSearch extends Component {
 
     render() {
         return (
-            <div className={[Classes.HotelSearch, 'grid'].join(' ')}>
-                <Grid container className={Classes.root} spacing={2}>
-                    <Grid item xa={12}>
-                        
-                        <Grid container justify="center" alignItems="flex-start" spacing={2}>
-                            <Grid item md={3} xs={12}>
-                                <Filters 
-                                filterAdded={(filterType, key, value) => this.filterAddedHandler(filterType, key, value)}
-                                onFilterEstablishments={filtersObj => this.setFilteredEstablishments(filtersObj)}
-    
-                                />
-                            </Grid>
-                            <Grid item md={9} xs={12}>
-                                <div className={Classes.EstablishmentsWrap}>
-                                    <SortSection sort={this.state.sort}  propertyCount={this.state.filteredEstablishments.length} onSortChanged={sortObj =>  this.sortFilteredEstablishments(sortObj)}/>
-                                    <Hotels establishments={this.state.filteredEstablishments} loading={this.props.loading} />
-                                </div>
-                            </Grid>
-                        </Grid>
-                        
-                    </Grid>
-                </Grid>
+            <div className={[Classes.HotelSearch,].join(' ')}>
                 
-                {/* <div className="container">
+                <div className="container">
                     <div className="row">
-                        <div className="col-md-3">
+                        <div className="col-lg-3">
                             <Filters 
                                 filterAdded={(filterType, key, value) => this.filterAddedHandler(filterType, key, value)}
                                 onFilterEstablishments={filtersObj => this.setFilteredEstablishments(filtersObj)}
                                 />
                         </div>
-                        <div className="col-md-9">
-                            <div>
-                                <SortSection sort={this.state.sort}  propertyCount={this.state.filteredEstablishments.length} onSortChanged={sortObj =>  this.sortFilteredEstablishments(sortObj)}/>
+                        <div className="col-lg-9">
+                            <div className="row">
+                                <div className="col">
+                                    <SortSection sort={this.state.sort}  propertyCount={this.state.filteredEstablishments.length} onSortChanged={sortObj =>  this.sortFilteredEstablishments(sortObj)}/>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col">
                                 <Hotels establishments={this.state.filteredEstablishments} loading={this.props.loading} />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
             </div>
         );
     }

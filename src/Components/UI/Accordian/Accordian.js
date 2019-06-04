@@ -30,7 +30,7 @@ class Accordian extends Component {
 
     render() {
         const { width } = this.state;
-        const isMobile = width <= 959;
+        const isMobile = width <= 991;
         let accordianClasses = isMobile? [Classes.Accordian, "mobile"]: [Classes.Accordian];
 
         if (isMobile) {

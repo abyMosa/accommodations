@@ -1,4 +1,4 @@
-.Hotel{
+.Hotel{ 
     width: 100%;
     min-height: 200px;
     background-color: white;
@@ -10,12 +10,13 @@
     box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
     flex-direction: row;
     flex-flow: row;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
 }
 
 .ImgContainer{
-    flex-basis: 200px;
-    flex-grow: 0;
+    /* flex-basis: 200px;
+    flex-grow: 0; */
+    padding: 0px!important;
 }
 .ContentContainer{
     flex-grow: 1;
@@ -45,9 +46,9 @@
     max-width: 200px;
     /* border-radius: 4px; */
 }
-.HotelHeader{
+/* .HotelHeader{
     display: flex;
-}
+} */
 .TitleContainer{
     flex-grow: 1;
 }
@@ -111,15 +112,18 @@
     text-align: right;
 }
 
+.HotelDetails{
+    /* padding: 15px; */
+}
 @media(max-width: 768px){
     .HotelTitle{
-        font-size: 15px;
+        font-size: 20px;
     }
     .Hotel{
         flex-direction: column;
         flex-flow: column;
         max-width: 100%;
-        box-shadow: none;
+        /* box-shadow: none; */
         padding: 0px;
         
     }
@@ -148,11 +152,17 @@
         flex-basis: 0px;
         text-align: left;
         margin-bottom: 12px;
+        flex-direction: row;
+        margin-top: 15px;
     }
+
     .HotelDetails > div{
         width: 100%;
     }
     .HotelDetails div:last-child{
         text-align: left;
+    }
+    .HotelDetails .SGVTypes{
+        display: none;
     }
 }

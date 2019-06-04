@@ -5,7 +5,6 @@
 }
 html, body{
     box-sizing: border-box;
-    /* width: 100%; */
     min-height: 100%;
     margin: 0px;
     padding: 0px;
@@ -18,9 +17,6 @@ h1, h2, h3, h4, h5, MuiTypography-body1{
     font-family: CoHeadlineLt, sans-serif !important;
 }
 
-p{
-    /* font-family: CoHeadlineLt, sans-serif !important; */
-}
 .rflex{
     display: flex;
     justify-content: flex-start;
@@ -54,7 +50,6 @@ p{
 }
 .bold{
     font-weight: 500;
-    /* font-family: CoHeadlineRg, sans-serif !important; */
     font-family: 'Montserrat', sans-serif;
 }
 .uppercase{
@@ -134,7 +129,6 @@ p{
 }
 
 .MuiAppBar-colorPrimary{
-    /* background-color: #383a41!important; */
     background-color: #FFFFFF!important;
     color: #000000!important;
 }

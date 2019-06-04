@@ -22,9 +22,9 @@ const Toolbar = (props) => {
                     <IconButton color="inherit">
                         <Badge badgeContent={17} color="secondary"> <NotificationsIcon /> </Badge>
                     </IconButton>
-                    <IconButton edge="end" aria-owns='material-appbar' aria-haspopup="true" color="inherit" >
+                    {/* <IconButton edge="end" aria-owns='material-appbar' aria-haspopup="true" color="inherit" >
                         <AccountCircle />
-                    </IconButton>
+                    </IconButton> */}
                 </div>
             </nav>
         </header>
