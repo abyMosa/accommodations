@@ -106,7 +106,8 @@
 }
 
 .HotelDetails > div{
-    width: 50%;
+    /* width: 50%; */
+
 }
 .HotelDetails div:last-child{
     text-align: right;
@@ -114,6 +115,15 @@
 
 .HotelDetails{
     /* padding: 15px; */
+    display: flex;
+
+}
+
+
+@media(min-width: 768px){
+    .ContentContainer hr{
+        display: none;
+    }
 }
 @media(max-width: 768px){
     .HotelTitle{
@@ -144,6 +154,7 @@
         flex-direction: column;
     }
     .ReviewContainer{
+        flex-grow: 1;
         flex-basis: 0px;
         text-align: left;
     }
@@ -152,17 +163,19 @@
         flex-basis: 0px;
         text-align: left;
         margin-bottom: 12px;
-        flex-direction: row;
-        margin-top: 15px;
+        
     }
 
+    .HotelDetails{
+        display: none;
+    }
     .HotelDetails > div{
         width: 100%;
     }
     .HotelDetails div:last-child{
         text-align: left;
     }
-    .HotelDetails .SGVTypes{
+    .HotelDetails svg{
         display: none;
     }
 }

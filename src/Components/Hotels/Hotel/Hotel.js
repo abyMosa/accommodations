@@ -24,6 +24,7 @@ const Hotel = (props) => {
             <div className={[classes.ImgContainer, 'col col-md-4'].join(' ')}>
                 <img src={props.establishment.ImageUrl} alt={props.establishment.Name}/>
             </div>
+            
             <div className={[classes.ContentContainer, 'col col-md-8'].join(' ')}>
 
                 <div className={[classes.HotelHeader, "row"].join(' ')}>
@@ -50,13 +51,14 @@ const Hotel = (props) => {
 
                 </div>
                 
-                <div className={[classes.HotelDetails, "row"].join(' ')}>
-                    <div className={["bold", "col-md-6", classes.SGVTypes].join(' ')}>
+                <div className={[classes.HotelDetails,"row"].join(' ')}>
+                    <div className={["bold", "col ", classes.SGVTypes].join(' ')}>
                         { props.establishment.EstablishmentType === "Hotel" ? <HotelIcon /> : <Domain /> }
                         <BeachAccess /> <HotTub /> <Spa /> <LocationCity />
                         <p >Type: {props.establishment.EstablishmentType}</p> 
                     </div>
-                    <div className="col-md-6">
+                    
+                    <div className="col ">
                         <People />
                         <p className="ma-0 text-sm">Price for two adults</p>
                         <p className="ma-0"> <span className="heavy text-lg"> £{props.establishment.MinCost.toFixed(2)}</span><span> GBP</span></p>
@@ -67,6 +69,19 @@ const Hotel = (props) => {
                 
 
             </div>
+
+            <div className="row onlyMobile pa-2">
+                <div className={["bold", "col ", classes.SGVTypes].join(' ')}>
+                    <p >Type: {props.establishment.EstablishmentType}</p> 
+ 
+                    <People />
+                    <p className="ma-0 text-sm">Price for two adults</p>
+                    <p className="ma-0"> <span className="heavy text-lg"> £{props.establishment.MinCost.toFixed(2)}</span><span> GBP</span></p>
+                    <p className="ma-0 text-sm mb-2">Includes taxes and charges</p>
+                    <Button variant="outlined" color="secondary"  > See availability </Button>
+                </div>
+            </div>
+
         </div>
         
     );
