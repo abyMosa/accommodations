@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Filter from './Filter/Filter';
 import Classes from './Filters.module.css';
-
+import Accordian from '../../UI/Accordian/Accordian';
 
 class Filters extends Component {
     
@@ -88,8 +88,6 @@ class Filters extends Component {
         return filtersObj;
     }
 
-
-
     render() {
         return (
             <div className={Classes.Filters}>
@@ -98,12 +96,16 @@ class Filters extends Component {
                 <div className={Classes.FiltersWrap}>
                     {
                         this.state.filters.map( (filter) => {
-                            return <Filter 
+                            return( 
+                                <Accordian key={filter.type} label={filter.label}>
+                                    <Filter 
                                     key={filter.type} 
                                     config={filter} 
                                     onNameAdded={(value) => this.nameChanged(value)} 
                                     onFilterAdded={(filterType, key, value) => this.filterAddedHandler(filterType, key, value)} 
                                     />
+                                </Accordian>
+                            )
                         })
                     }
                 </div>

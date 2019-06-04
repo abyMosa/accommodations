@@ -23,13 +23,14 @@
     /* text-transform: uppercase; */
 }
 
-@media(max-width: 500px){
+@media(max-width: 768px){
     .SortSection{
         flex-direction: column;  
         text-align: left;
         justify-content: flex-start;
         align-content: flex-start;   
         padding: 15px;  
+        margin-top: 0px;
     }
     .SortSection > div{
         max-width: 100%;

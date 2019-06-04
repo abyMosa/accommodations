@@ -43,7 +43,7 @@
 
 .ImgContainer img{
     max-width: 200px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
 }
 .HotelHeader{
     display: flex;
@@ -111,12 +111,17 @@
     text-align: right;
 }
 
-@media(max-width: 500px){
+@media(max-width: 768px){
+    .HotelTitle{
+        font-size: 15px;
+    }
     .Hotel{
         flex-direction: column;
         flex-flow: column;
         max-width: 100%;
         box-shadow: none;
+        padding: 0px;
+        
     }
     .ImgContainer{
         flex-basis: 100%;
@@ -124,12 +129,12 @@
     }
     .ImgContainer img{
         max-width: 100%;
-        border-radius: 4px;
+        width: 100%;
         margin-bottom: 25px;
     }
     .ContentContainer{
         flex-grow: 1;
-        padding: 0px;
+        padding: 20px;
     }
     .HotelHeader{
         flex-direction: column;
@@ -143,5 +148,11 @@
         flex-basis: 0px;
         text-align: left;
         margin-bottom: 12px;
+    }
+    .HotelDetails > div{
+        width: 100%;
+    }
+    .HotelDetails div:last-child{
+        text-align: left;
     }
 }

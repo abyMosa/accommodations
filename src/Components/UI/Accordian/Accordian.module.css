@@ -1,0 +1,10 @@
+.Accordian{
+
+}
+.Label{
+    font-weight: 500;
+    font-family: CoHeadlineRg, sans-serif !important;
+    text-transform: uppercase;
+    padding: 0px;
+    margin: 0px;
+}

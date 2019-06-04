@@ -143,6 +143,17 @@ p{
     border-radius: 0px!important;
 }
 
+.mobile .filter-label{
+    display: none;
+}
+.mobile .filter{
+    margin: 0px;
+}
+
+
+
+
+
 @media(max-width: 500px){
     .MuiGrid-spacing-xs-2, .MuiGrid-spacing-xs-3{
         width: 100%!important;

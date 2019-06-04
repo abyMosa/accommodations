@@ -1,19 +1,22 @@
 .Filters{
     background-color: white;
-    margin: 97px 0px 25px;
+    margin: 120px 0px 25px;
     text-align: left;
-    /* border-radius: 4px; */
     padding: 25px;
-    /* border: 1px solid rgba(0,0,0, .3); */
     box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
+    width: 100%;
 }
 .Filters > p{
     border-bottom: 1px dotted rgba(0,0,0,.2);
     padding-bottom: 15px;
 }
 
-@media(max-width: 500px){
+@media(max-width: 959px){
     .Filters{
-        margin: 7px 0px 25px;
+        margin-top: 37px;
+        background-color: transparent;
+        box-shadow: none;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
     }
 }

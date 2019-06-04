@@ -3,6 +3,11 @@ import "core-js/features/set";
 import "core-js/proposals/reflect-metadata";
 import "core-js/stage/2";
 
+import 'core-js/features/array/from'; // <- at the top of your entry point
+import 'core-js/features/array/flat'; // <- at the top of your entry point    
+import 'core-js/features/promise';    // <- at the top of your entry point
+// import "bootstrap/dist/css/bootstrap.min.css";
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
