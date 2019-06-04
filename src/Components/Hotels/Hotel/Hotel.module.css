@@ -24,7 +24,7 @@
 }
 .ReviewContainer{
     flex-grow: 0;
-    flex-basis: 150px;
+    flex-basis: 165px;
     text-align: right;
 }
 
@@ -32,14 +32,14 @@
     background-color: #3f51b5;
     min-width: 15px;
     display: inline-block;
-    padding: 8px;
+    padding: 3px;
     color: white;
     font-weight: 500;
     border-radius: 6px 6px 6px 0px;
     text-align: center;
     margin: 0px;
     margin-left: 10px;
-    min-width: 38px;
+    min-width: 29px;
 }
 
 .ImgContainer img{

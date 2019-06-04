@@ -40,7 +40,7 @@ const Hotel = (props) => {
                     </div>
                     
 
-                    <div className={[classes.UserRatingWrap, 'col col-md-4'].join(' ')}>
+                    <div className={[classes.UserRatingWrap, 'col col-md-4 mb-2'].join(' ')}>
                         <div className={classes.ReviewContainer}>
                             <p className={[classes.RatingTitle, statusClass, 'ma-0'].join(' ')}> {props.establishment.UserRatingTitle} </p>
                             <p className={[classes.Small, 'ma-0'].join(' ')}> {props.establishment.UserRatingCount} { props.establishment.UserRatingCount === 1 ? "review" : "reviews"}</p>
@@ -53,10 +53,7 @@ const Hotel = (props) => {
                 <div className={[classes.HotelDetails, "row"].join(' ')}>
                     <div className={["bold", "col-md-6", classes.SGVTypes].join(' ')}>
                         { props.establishment.EstablishmentType === "Hotel" ? <HotelIcon /> : <Domain /> }
-                        <BeachAccess />
-                        <HotTub />
-                        <Spa />
-                        <LocationCity />
+                        <BeachAccess /> <HotTub /> <Spa /> <LocationCity />
                         <p >Type: {props.establishment.EstablishmentType}</p> 
                     </div>
                     <div className="col-md-6">
