@@ -9,6 +9,7 @@
     border-radius: 4px; 
     transition: all .2s ease-out;
     background-color: #fff;
+    min-width: 230px;
 }
 .InputOuter:hover{
     border: 1px solid #bfbfbf;

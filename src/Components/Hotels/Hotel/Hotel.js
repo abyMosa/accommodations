@@ -1,65 +1,28 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import classes from './Hotel.module.css';
+import HotelHeader from './HotelHeader/HotelHeader';
+import HotelFooter from './HotelFooter/HotelFooter';
+import Container from '../../UI/Grid/Container/Container';
+import Row from '../../UI/Grid/Row/Row';
+import Col from '../../UI/Grid/Col/Col';
 
-const Hotel = (props) => {
-    let successAr = ['Great', 'Excellent', 'Very Good', 'Good', 'Exceptional', 'Magnificent', 'Spectacular',];
-    let normalAr = ['Above Average', 'Average', ];
 
-    let statusClass = successAr.includes(props.establishment.UserRatingTitle)? classes.Success: 
-            normalAr.includes(props.establishment.UserRatingTitle)? classes.Warning
-            : props.establishment.UserRatingTitle === 'Unrated'? classes.Unrated
-            : classes.Error;
-
-    let stars = [];
-    for (let i = 0; i < props.establishment.Stars; i++) {
-        stars.push( <div key={props.establishment.EstablishmentId+'star-'+i} className={classes.Star}>&#9733;</div> );
+class Hotel extends PureComponent {
+    render() {
+        return (
+            <Container className={[classes.Hotel, 'pa-4'].join(' ')}>
+                <Row gutter1>
+                    <Col md4>
+                        <img src={this.props.establishment.ImageUrl} alt={this.props.establishment.Name}/>
+                    </Col>
+                    <Col md8>
+                        <HotelHeader establishment={this.props.establishment}/>
+                        <HotelFooter establishment={this.props.establishment}/>
+                    </Col>
+                </Row>
+            </Container>
+        );
     }
-    
-    return (
-        <div className={[classes.Hotel, 'rflex'].join(' ')}>
-            <div className={[classes.ImgContainer, 'flexItem'].join(' ')}>
-                <img src={props.establishment.ImageUrl} alt={props.establishment.Name}/>
-            </div>
-            <div className={classes.ContentContainer}>
+}
 
-                <div className={classes.HotelHeader}>
-                    <div className={classes.TitleContainer}>
-                        <div className={classes.HotelTitleWrap}>
-                            <div className={[classes.HotelTitle, 'thin'].join(' ')}>{props.establishment.Name}</div>
-                            {/* <Typography variant="h5" gutterBottom> {props.establishment.Name} </Typography> */}
-                            <div className={classes.StarsWrap}> <div className={classes.Stars}>{stars}</div> </div>
-                        </div>
-                        
-                        <p className={classes.Location}>
-                            <span className="bold"> {props.establishment.Location} </span>
-                            <span className={classes.Distance}>({props.establishment.Distance.toFixed(2)} Miles away from center)</span>
-                        </p>
-                    </div>
-                    
-
-                    <div className={classes.UserRatingWrap}>
-                        <div className={classes.ReviewContainer}>
-                            <p className={[classes.RatingTitle, statusClass, 'ma-0'].join(' ')}> {props.establishment.UserRatingTitle} </p>
-                            <p className={[classes.Small, 'ma-0'].join(' ')}> {props.establishment.UserRatingCount} { props.establishment.UserRatingCount === 1 ? "review" : "reviews"}</p>
-                        </div>
-                        <div className={[classes.UserRating].join(' ')}> <p>{props.establishment.UserRating}</p></div>
-                    </div>
-
-                </div>
-                
-                <div className={[classes.HotelDetails, "flex row wrap"].join(' ')}>
-                    <div className="bold"> <p >Type: {props.establishment.EstablishmentType}</p> </div>
-                    <div>
-                        <p className="mb-0 text-sm">Price per person</p>
-                        <p className="ma-0"> <span className="heavy text-lg"> £{props.establishment.MinCost.toFixed(2)}</span><span> GBP</span></p>
-                        <p className="ma-0 text-sm">Includes taxes and charges</p>
-                    </div>
-                </div>
-                
-
-            </div>
-        </div>
-    );
-};
-
-export default React.memo(Hotel);
+export default Hotel;

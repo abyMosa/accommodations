@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import Classes from './Pagination.module.css';
-import Button from '@material-ui/core/Button';
+import Btn from '../Btn/Btn';
+// import Button from '@material-ui/core/Button';
 
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
@@ -121,16 +122,19 @@ class Pagination extends Component {
     handleClick = page => evt => {
         evt.preventDefault();
         this.gotoPage(page);
+        window.scrollTo(0, 0)
     }
     
     handleMoveLeft = evt => {
         evt.preventDefault();
         this.gotoPage(this.state.currentPage - (this.pageNeighbours * 2) - 1);
+        window.scrollTo(0, 0)
     }
     
     handleMoveRight = evt => {
         evt.preventDefault();
         this.gotoPage(this.state.currentPage + (this.pageNeighbours * 2) + 1);
+        window.scrollTo(0, 0)
     }
 
 
@@ -145,23 +149,27 @@ class Pagination extends Component {
           <Fragment>
                 <ul className={Classes.Pagination}>
                     { pages.map((page, index) => {
-        
+                        let pageClass = currentPage === page? "dark": "";
                         if (page === LEFT_PAGE) 
-                            return <li key={index}> <Button onClick={ this.handleMoveLeft } color="secondary" className={Classes.PaginationBtn}><span aria-hidden="true">&laquo;</span> <span className="sr-only">Previous</span></Button> </li>
-                        
+                            return (
+                                <li key={index}> 
+                                    <Btn onClick={ this.handleMoveLeft } xs className="mx-1"><span aria-hidden="true">&laquo;</span> <span className="sr-only">Previous</span></Btn> 
+                                </li>
+                            )
         
                         if (page === RIGHT_PAGE)  
-                            return <li key={index}> <Button onClick={ this.handleMoveRight } color="secondary" className={Classes.PaginationBtn}><span className="sr-only">Next</span> <span aria-hidden="true">&raquo;</span></Button> </li>
-                        
+                            return (
+                                <li key={index}> 
+                                    <Btn onClick={ this.handleMoveRight } xs className="mx-1"><span className="sr-only">Next</span> <span aria-hidden="true">&raquo;</span></Btn> 
+                                </li>
+                            )
 
                         return (
-                            <li key={index} className={currentPage === page ? "lklkl": null}>
-                                <Button onClick={ this.handleClick(page) } color={currentPage === page? "primary": "secondary"} className={Classes.PaginationBtn}>{ page }</Button>
+                            <li key={index}>
+                                <Btn onClick={ this.handleClick(page) } xs className={["mx-1", pageClass].join(' ')}>{page}</Btn> 
                             </li>
                         );
-        
                     }) }
-      
                 </ul>
           </Fragment>
         );

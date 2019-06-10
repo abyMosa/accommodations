@@ -1,8 +1,5 @@
 .Pagination{
     width: 100%;;
-}
-
-.Pagination ul{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,8 +7,4 @@
 .Pagination li{
     list-style: none;
     display: inline-block;
-}
-
-.PaginationBtn{
-    
 }

@@ -16,6 +16,7 @@
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "css-loader": "2.1.1",
+    "classnames": "^2.2.6",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
     "eslint": "^5.16.0",
@@ -52,6 +53,7 @@
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "react-scripts": "3.0.1",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "semver": "6.0.0",
@@ -65,9 +67,14 @@
     "workbox-webpack-plugin": "4.2.0"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "build:css": "postcss src/assets/css/main.css -o src/index.css",
+    "watch:css": "postcss src/assets/css/main.css -o src/index.css -w",
+    "start": "npm-run-all -p watch:css start-js",
+    "start-js": "react-scripts start",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build:css build-js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -81,7 +88,18 @@
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "ie 9",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "ie 9",
+      "BlackBerry >= 7",
+      "Chrome >= 9",
+      "Firefox >= 4",
+      "iOS >= 7",
+      "Safari >= 6",
+      "ExplorerMobile >= 9"
     ]
   },
   "jest": {
@@ -135,6 +153,23 @@
     ]
   },
   "devDependencies": {
-    "react-perf-devtool": "^3.1.8"
+    "react-perf-devtool": "^3.1.8",
+    "autoprefixer": "^9.6.0",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.2",
+    "postcss-conditionals": "^2.1.0",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-discard-comments": "^4.0.2",
+    "postcss-each": "^0.10.0",
+    "postcss-for": "^2.1.1",
+    "postcss-import": "^12.0.1",
+    "postcss-media-minmax": "^4.0.0",
+    "postcss-mixins": "^6.2.1",
+    "postcss-nested": "^4.1.2",
+    "postcss-reporter": "^6.0.1",
+    "postcss-simple-vars": "^5.0.2",
+    "rucksack-css": "^1.0.2"
   }
 }

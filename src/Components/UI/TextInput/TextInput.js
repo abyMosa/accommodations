@@ -30,6 +30,9 @@ class TextInput extends Component {
     inputClicked = (event) => {
         let classes = [Classes.InputOuter,];
         classes.push(Classes.Active);
+        if(this.state.hasValue){
+            classes.push(Classes.HasValue);
+        }
 
         this.setState({ focused: true, classes: classes });
         this.MyInput.focus(); 
@@ -39,25 +42,40 @@ class TextInput extends Component {
         let classes = [Classes.InputOuter,];
         if(this.state.hasValue){
             classes.push(Classes.HasValue);
+            classes.push(Classes.Active);
         }
-
+        
         if(event.target.value.length > 0 ){
             this.setState({ hasValue: true, focused : false, classes: classes });
         }else{
             this.setState({ hasValue: false, focused : false, classes: classes });
         }
-
-        // if( this.props.filterAdded )
-            this.props.filterAdded( event.target.value);
+        
+        
+        this.props.filterAdded( event.target.value);
     }
     keyStroke = (event) => {
-        if(!this.state.touched){
-            if(event.target.value < 2 ){
-                return;
-            }
+        // if(!this.state.touched){
+        //     // console.log(event.target.value);
+        //     // if(event.target.value < 2 ){
+        //     //     return;
+        //     // }
+        // }
+        let classes = [Classes.InputOuter,];
+        classes.push(Classes.Active);
+        
+        if(event.target.value.length > 0 ){
+            this.setState({ hasValue: true, focused : true, classes: classes });
+        }else{
+            this.setState({ hasValue: false, focused : false, classes: classes });
         }
+        
+        if(this.state.hasValue){
+            classes.push(Classes.HasValue);
+        }
+
+        
         this.setState({ touched: true });         
-        // if( this.props.filterAdded )
             this.props.filterAdded( event.target.value);
     }
 

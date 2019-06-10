@@ -1,0 +1,52 @@
+
+.HotelTitle{
+    font-size: 25px;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 12px;
+    line-height: 1.5;
+}
+
+.StarsWrap{
+    display: inline-block;
+}
+.Stars{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.Star{
+    color: #ffcc00;
+    font-size: 20px;
+}
+.UserRating p{
+    background-color: #3f51b5;
+    min-width: 15px;
+    display: inline-block;
+    padding: 3px;
+    color: white;
+    font-weight: 500;
+    border-radius: 6px 6px 6px 0px;
+    text-align: center;
+    margin: 0px;
+    margin-left: 10px;
+    min-width: 29px;
+}
+
+.RatingTitle{
+    font-size: 18px;
+    font-weight: 500;
+}
+.Success{
+    color:#3f51b5;
+}
+.Warning{
+    color: #eac329;
+}
+.Error{
+    color: Red;
+}
+.Unrated{
+    color: gray;
+}

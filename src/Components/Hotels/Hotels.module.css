@@ -1,4 +1,11 @@
 .Hotels{
-    
     box-sizing: border-box;
+    width: 100%;
+}
+
+
+@media(max-width: 768px){
+    .Hotels{
+        padding: 25px;
+    }
 }
