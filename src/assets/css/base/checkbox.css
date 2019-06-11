@@ -11,7 +11,7 @@ label{
     align-items: center;
     margin-bottom: 7px;
     .label-holder{
-
+        font-size: 13px;
     }
 }
 label.ab-checkbox-block{

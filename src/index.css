@@ -608,7 +608,7 @@
             align-items:center;
     margin-bottom:7px;
 }label .label-holder{
-
+        font-size:13px;
     }label.ab-checkbox-block{
 }.ab-checkbox{
     -webkit-appearance:none;
