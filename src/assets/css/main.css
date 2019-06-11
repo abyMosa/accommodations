@@ -5,4 +5,5 @@
 @import './base/typography.css';
 @import './base/spacing.css';
 @import './base/button.css';
+@import './base/checkbox.css';
 @import './base/elevation.css';

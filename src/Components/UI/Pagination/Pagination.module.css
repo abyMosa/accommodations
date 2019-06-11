@@ -1,8 +1,11 @@
 .Pagination{
     width: 100%;;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin: 0px 0px 40px;
+    padding: 0px;
 }
 .Pagination li{
     list-style: none;
